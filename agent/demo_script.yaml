@@ -1,0 +1,37 @@
+# Sentinel X Demo Script
+# This script defines the conversation turns for the demo video
+
+title: "Sentinel X - AI Cyber Incident Commander Demo"
+
+narrator: "Sentinel X"
+voice: "amy"  # Amazon Polly voice
+
+slides:
+  - title: "Sentinel X"
+    subtitle: "AI Cyber Incident Commander"
+    bullet: "Investigates security incidents using Strands Decider 2B"
+    bullet: "Selects the right investigation tool based on context"
+    bullet: "Returns structured incident reports with audit trail"
+    end_card: true
+
+turns:
+  - turn: 1
+    user: "Analyze incident INC-2026-001: Multiple failed login attempts followed by successful login from unusual location"
+    expected_tool: "inspect_login_history"
+    narration: "Let me analyze this security incident. First, I'll check the user's login history to understand the pattern."
+
+  - turn: 2
+    expected_tool: "inspect_ip_reputation"
+    narration: "The login shows failed attempts from one IP, then success from London. Let me check the IP reputation of that unusual location."
+
+  - turn: 3
+    expected_tool: "inspect_related_incidents"
+    narration: "The London IP is flagged as suspicious. Let me check if there are related incidents involving this user."
+
+  - turn: 4
+    expected_tool: "inspect_privilege_changes"
+    narration: "This user has a related privilege escalation incident. Let me check the privilege changes timeline."
+
+  - turn: 5
+    expected_tool: "conclude_investigation"
+    narration: "Now I have enough evidence. The pattern shows credential stuffing attack leading to privilege escalation. I'll conclude with a finding and recommended action."
